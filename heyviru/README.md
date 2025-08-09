@@ -18,7 +18,7 @@
 - OG image: `public/og.jpg`
 
 ### Test PWA installability
-1. Run `npm run build && npm start`
+1. Runn `npm run build && npm start`
 2. Open in Chrome → Application tab → Manifest should pass; try “Install app” in header
 
 ### Test offline
