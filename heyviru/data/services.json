@@ -1,0 +1,13 @@
+{
+  "services": [
+    "Short-form edits (Reels, Shorts, TikTok)",
+    "Aftermovies & event recaps",
+    "Brand spots & paid social",
+    "UGC ads",
+    "Narrative & doc-style cuts"
+  ],
+  "process": ["Brief", "Rough cut", "Refine", "Deliver"],
+  "tools": ["Premiere Pro", "After Effects", "DaVinci Resolve", "Figma"]
+}
+
+

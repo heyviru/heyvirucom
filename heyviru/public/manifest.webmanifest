@@ -1,0 +1,20 @@
+{
+  "name": "Virendra Sankpal — Video Editor",
+  "short_name": "heyviru",
+  "description": "Chaotic cuts. Organized stories.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c0c0f",
+  "theme_color": "#0c0c0f",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
+

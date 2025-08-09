@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0c0c0f;
+  --fg: #f4f6fb;
+  --muted: #a9aec1;
+  --neon-cyan: #00e5ff;
+  --neon-magenta: #ff00e5;
+}
+
+html { color-scheme: dark; }
+body {
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(0,229,255,0.08), transparent 60%),
+              radial-gradient(1200px 800px at 110% 0%, rgba(255,0,229,0.06), transparent 60%),
+              var(--bg);
+  color: var(--fg);
+  font-family: var(--font-inter), ui-sans-serif, system-ui;
+}
+
+/* Focus styles */
+:where(a, button, input, [role='button'], [role='link']):focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.font-display { font-family: var(--font-archivo-black), ui-sans-serif, system-ui; }
+
+.chip { @apply rounded-full border border-white/15 px-3 py-1.5 text-sm text-white/80 whitespace-nowrap; }
+.chip--active { @apply bg-white/10 text-white; }
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* remove CRA template tailwind v4 directives */

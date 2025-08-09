@@ -1,0 +1,37 @@
+[
+  {
+    "id": "sf-1",
+    "title": "Kinetic Reels Compilation",
+    "category": "Short-form",
+    "role": "Editing, Sound design",
+    "poster": "/media/thumbs/sf1.jpg",
+    "preview": "/media/previews/sf1.webm",
+    "caseVideo": "/media/cases/sf1.mp4",
+    "tools": ["Premiere Pro", "After Effects", "DaVinci Resolve"],
+    "impact": "Increased watch-through to 72% with rhythmic cuts."
+  },
+  {
+    "id": "event-1",
+    "title": "Neon Nights — Aftermovie",
+    "category": "Event/Aftermovie",
+    "role": "Editing",
+    "poster": "/media/thumbs/event1.jpg",
+    "preview": "/media/previews/event1.webm",
+    "caseVideo": "/media/cases/event1.mp4",
+    "tools": ["Premiere Pro"],
+    "impact": "Captured energy with handheld motion and beat-matched transitions."
+  },
+  {
+    "id": "brand-1",
+    "title": "Electric Cyan — Brand Spot",
+    "category": "Brand Spots",
+    "role": "Editing, Color",
+    "poster": "/media/thumbs/brand1.jpg",
+    "preview": "/media/previews/brand1.webm",
+    "caseVideo": "/media/cases/brand1.mp4",
+    "tools": ["Premiere Pro", "After Effects"],
+    "impact": "Short, punchy, high-contrast story arc for paid social."
+  }
+]
+
+
