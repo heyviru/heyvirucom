@@ -14,21 +14,7 @@ export function Hero() {
     setMuted(v.muted);
   };
 
-  const fontCycle = useMemo(
-    () => [
-      'ff-display','ff-bebas','ff-anton','ff-oswald','ff-barlow','ff-montserrat-alt','ff-exo2','ff-rubikmono','ff-righteous','ff-russo','ff-staatliches','ff-alfa','ff-recursive'
-    ],
-    []
-  );
-  const [fontIndex, setFontIndex] = useState(0);
-  // cycle font every 200ms (reduced-motion safe)
-  useEffect(() => {
-    if (prefersReduced) return;
-    const id = setInterval(() => {
-      setFontIndex((i) => (i + 1) % fontCycle.length);
-    }, 200);
-    return () => clearInterval(id);
-  }, [prefersReduced, fontCycle.length]);
+  // Variable font morphing via CSS; keep only one family to avoid layout jumps
 
   const videos = useMemo(() => [
     '/media/previews/sf1.webm',
@@ -56,7 +42,7 @@ export function Hero() {
 
       <div className="relative z-10 text-center px-6">
         <motion.h1
-          className={`text-6xl sm:text-8xl md:text-9xl tracking-tight ${fontCycle[fontIndex]}`}
+          className={`text-6xl sm:text-8xl md:text-9xl tracking-tight font-morph font-morph-anim`}
           initial={prefersReduced ? false : { y: 20, opacity: 0 }}
           animate={prefersReduced ? {} : { y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}

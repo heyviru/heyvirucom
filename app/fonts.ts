@@ -1,4 +1,4 @@
-import { Inter, Archivo_Black, Bebas_Neue, Anton, Oswald, Barlow_Condensed, Montserrat_Alternates, Exo_2, Rubik_Mono_One, Righteous, Russo_One, Staatliches, Alfa_Slab_One, Recursive } from 'next/font/google';
+import { Inter, Archivo_Black, Bebas_Neue, Anton, Oswald, Barlow_Condensed, Montserrat_Alternates, Exo_2, Rubik_Mono_One, Righteous, Russo_One, Staatliches, Alfa_Slab_One, Recursive, Roboto_Flex } from 'next/font/google';
 
 export const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 export const archivoBlack = Archivo_Black({ weight: '400', subsets: ['latin'], variable: '--font-archivo-black', display: 'swap' });
@@ -18,5 +18,6 @@ export const recursive = Recursive({
   variable: '--font-recursive',
   display: 'swap'
 });
+export const robotoFlex = Roboto_Flex({ subsets: ['latin'], variable: '--font-roboto-flex', display: 'swap' });
 
 

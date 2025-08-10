@@ -62,3 +62,36 @@ body {
   .ff-alfa { font-family: var(--font-alfa-slab-one), ui-sans-serif, system-ui; }
   .ff-recursive { font-family: var(--font-recursive), ui-sans-serif, system-ui; }
 }
+
+/* Variable font morphing (uses Recursive) */
+@property --wght { syntax: '<number>'; inherits: true; initial-value: 700; }
+@property --wdth { syntax: '<number>'; inherits: true; initial-value: 100; }
+@property --slnt { syntax: '<number>'; inherits: true; initial-value: 0; }
+
+.font-morph {
+  font-family: var(--font-recursive), ui-sans-serif, system-ui;
+  /* start values tuned to keep apparent size steady */
+  --wght: 700;
+  --wdth: 100;
+  --slnt: 0;
+  font-variation-settings:
+    "wght" var(--wght),
+    "wdth" var(--wdth),
+    "slnt" var(--slnt),
+    "MONO" 0,
+    "CASL" 0.4;
+  letter-spacing: -0.01em;
+}
+
+@keyframes fontMorph {
+  0%   { --wght: 560; --wdth: 95;  --slnt: 0; }
+  33%  { --wght: 740; --wdth: 102; --slnt: 0; }
+  66%  { --wght: 620; --wdth: 98;  --slnt: -6; }
+  100% { --wght: 680; --wdth: 100; --slnt: 0; }
+}
+
+.font-morph-anim { animation: fontMorph 0.2s cubic-bezier(0.22,1,0.36,1) infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  .font-morph-anim { animation: none; }
+}
