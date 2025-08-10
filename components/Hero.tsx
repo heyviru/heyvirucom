@@ -38,7 +38,7 @@ export function Hero() {
           animate={prefersReduced ? {} : { y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          Virendra Sankpal — Video Editor
+          <span className="neon-text">Virendra Sankpal</span> — Video Editor
         </motion.h1>
         <motion.p
           className="mt-4 text-white/80"
@@ -49,8 +49,8 @@ export function Hero() {
           Chaotic cuts. Organized stories.
         </motion.p>
         <div className="mt-8 flex items-center justify-center gap-3">
-          <a href="#contact" className="rounded-full px-5 py-3 bg-[var(--neon-cyan)] text-black font-semibold">Book an edit</a>
-          <a href="#work" className="rounded-full px-5 py-3 border border-white/20">Watch showreel</a>
+          <a href="#contact" className="btn-primary">Book an edit</a>
+          <a href="#work" className="btn-outline">Watch showreel</a>
           <button onClick={toggleMute} className="rounded-full px-3 py-3 border border-white/20" aria-pressed={!muted} aria-label="Toggle sound">
             {muted ? 'Unmute' : 'Mute'}
           </button>
