@@ -91,6 +91,13 @@ body {
 }
 
 .font-morph-anim { animation: fontMorph 0.2s cubic-bezier(0.22,1,0.36,1) infinite alternate; }
+/* Crossfade helper for font cycle */
+@keyframes crossfade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.font-crossfade-in { animation: crossfade 0.2s ease forwards; }
 
 @media (prefers-reduced-motion: reduce) {
   .font-morph-anim { animation: none; }
