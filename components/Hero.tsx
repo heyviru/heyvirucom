@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 export function Hero() {
@@ -14,11 +14,34 @@ export function Hero() {
     setMuted(v.muted);
   };
 
+  const fontCycle = useMemo(
+    () => [
+      'ff-display','ff-bebas','ff-anton','ff-oswald','ff-barlow','ff-montserrat-alt','ff-exo2','ff-rubikmono','ff-righteous','ff-russo','ff-staatliches','ff-alfa','ff-recursive'
+    ],
+    []
+  );
+  const [fontIndex, setFontIndex] = useState(0);
+  // cycle font every 200ms (reduced-motion safe)
+  useEffect(() => {
+    if (prefersReduced) return;
+    const id = setInterval(() => {
+      setFontIndex((i) => (i + 1) % fontCycle.length);
+    }, 200);
+    return () => clearInterval(id);
+  }, [prefersReduced, fontCycle.length]);
+
+  const videos = useMemo(() => [
+    '/media/previews/sf1.webm',
+    '/media/previews/event1.webm',
+    '/media/previews/brand1.webm'
+  ], []);
+  const chosen = useMemo(() => videos[Math.floor(Math.random() * videos.length)], [videos]);
+
   return (
     <section id="hero" className="relative min-h-[80svh] grid place-items-center overflow-hidden">
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
+        className="absolute inset-0 w-full h-full object-cover opacity-30 saturate-50"
         autoPlay
         playsInline
         loop
@@ -27,18 +50,18 @@ export function Hero() {
         poster="/hero-poster.jpg"
         aria-label="Showreel hero background"
       >
-        <source src="/media/hero.webm" type="video/webm" />
+        <source src={chosen} type="video/webm" />
         <source src="/media/hero.mp4" type="video/mp4" />
       </video>
 
       <div className="relative z-10 text-center px-6">
         <motion.h1
-          className="font-display text-4xl sm:text-6xl md:text-7xl tracking-tight"
+          className={`text-6xl sm:text-8xl md:text-9xl tracking-tight ${fontCycle[fontIndex]}`}
           initial={prefersReduced ? false : { y: 20, opacity: 0 }}
           animate={prefersReduced ? {} : { y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="neon-text">Virendra Sankpal</span> — Video Editor
+          <span className="neon-text">heyviru</span>
         </motion.h1>
         <motion.p
           className="mt-4 text-white/80"

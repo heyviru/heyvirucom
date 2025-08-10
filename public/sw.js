@@ -12,8 +12,8 @@ const APP_SHELL = [
   '/icons/icon.svg'
 ];
 
-const STATIC_CACHE = 'static-v1';
-const CONTENT_CACHE = 'content-v1';
+const STATIC_CACHE = 'static-v2';
+const CONTENT_CACHE = 'content-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
