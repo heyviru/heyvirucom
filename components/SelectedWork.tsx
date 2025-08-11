@@ -26,9 +26,9 @@ export function SelectedWork() {
   const filtered = useMemo(() => (active === 'All' ? items : items.filter(i => i.category === active)), [active, items]);
 
   return (
-    <section id="work" className="section">
+    <section id="work" className="section-tight">
       <div className="flex items-center justify-between">
-        <h2 className="font-display text-2xl">Selected Work</h2>
+        <h2 className="font-display text-2xl ink-stroke">Selected Work</h2>
         <div className="hidden sm:flex gap-2">
           <button onClick={() => setActive('All')} className={`chip ${active === 'All' ? 'chip--active' : ''}`}>All</button>
           {FILTERS.map(f => (
@@ -49,7 +49,7 @@ export function SelectedWork() {
           <motion.button
             key={item.id}
             onClick={() => setOpenId(item.id)}
-            className="group text-left rounded-xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--neon-cyan)] transition shadow-sm hover:shadow-[0_10px_30px_-10px_rgba(0,229,255,0.25)]"
+            className="group text-left rounded-xl overflow-hidden paper-card focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 transition"
             initial={prefersReduced ? false : { opacity: 0, y: 10 }}
             whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -67,11 +67,11 @@ export function SelectedWork() {
               >
                 <source src={item.preview} />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
             </div>
             <div className="p-4">
               <div className="font-medium">{item.title}</div>
-              <div className="text-sm text-white/70">{item.impact}</div>
+              <div className="text-sm text-black/70">{item.impact}</div>
             </div>
           </motion.button>
         ))}

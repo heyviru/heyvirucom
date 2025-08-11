@@ -3,32 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0c0c0f;
-  --fg: #f4f6fb;
-  --muted: #a9aec1;
-  --neon-cyan: #00e5ff;
-  --neon-magenta: #ff00e5;
+  --bg: #0d0d0d;
+  --paper: #f6f6f2;
+  --ink: #111213;
+  --muted: #6f7175;
+  --accent: #cbd5e1; /* subtle cool gray */
 }
 
-html { color-scheme: dark; }
+html { color-scheme: light; }
 body {
-  background: radial-gradient(1200px 800px at 20% -20%, rgba(0,229,255,0.09), transparent 60%),
-              radial-gradient(1200px 800px at 120% 10%, rgba(255,0,229,0.07), transparent 60%),
-              var(--bg);
-  color: var(--fg);
+  background: repeating-linear-gradient(0deg, #fafaf7 0px, #fafaf7 2px, #f3f3ef 2px, #f3f3ef 4px);
+  color: var(--ink);
   font-family: var(--font-inter), ui-sans-serif, system-ui;
 }
 
 /* Focus styles */
 :where(a, button, input, [role='button'], [role='link']):focus-visible {
-  outline: 2px solid var(--neon-cyan);
+  outline: 2px dashed var(--ink);
   outline-offset: 2px;
 }
 
-.font-display { font-family: var(--font-archivo-black), ui-sans-serif, system-ui; }
+.font-display { font-family: var(--font-patrick-hand), var(--font-caveat), ui-sans-serif, system-ui; }
+.font-body { font-family: var(--font-comic-neue), var(--font-inter), ui-sans-serif, system-ui; }
 
-.chip { @apply rounded-full border border-white/15 px-3 py-1.5 text-sm text-white/80 whitespace-nowrap; }
-.chip--active { @apply bg-white/10 text-white; }
+.chip { @apply rounded-full border border-black/40 px-3 py-1.5 text-sm text-black/80 whitespace-nowrap bg-[rgba(0,0,0,0.02)]; box-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+.chip--active { @apply bg-black/5 text-black; }
 
 /* Reduce motion support */
 @media (prefers-reduced-motion: reduce) {
@@ -41,10 +40,14 @@ body {
 /* remove CRA template tailwind v4 directives */
 
 @layer components {
-  .neon-text { @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-magenta)]; }
-  .btn-primary { @apply rounded-full px-5 py-3 bg-[var(--neon-cyan)] text-black font-semibold shadow-[0_0_0_0_rgba(0,0,0,0)] hover:shadow-[0_10px_30px_-10px_rgba(0,229,255,0.6)] transition; }
-  .btn-outline { @apply rounded-full px-5 py-3 border border-white/20 hover:bg-white/10 transition; }
-  .section { @apply mx-auto max-w-6xl px-4 py-16; }
+  .neon-text { color: var(--ink); }
+  .btn-primary { @apply rounded-lg px-5 py-2 border border-black/60 bg-[rgba(0,0,0,0.03)] text-black shadow-[2px_2px_0_rgba(0,0,0,0.35)] hover:-translate-y-[1px] transition; }
+  .btn-outline { @apply rounded-lg px-5 py-2 border border-black/40 bg-transparent shadow-[2px_2px_0_rgba(0,0,0,0.2)] hover:bg-black/5 transition; }
+  .section { @apply mx-auto max-w-6xl px-4 py-10; }
+  .section-tight { @apply relative mx-auto max-w-6xl px-3 py-8; }
+  .paper-card { background: var(--paper); box-shadow: 6px 6px 0 rgba(0,0,0,0.25); border: 1px solid rgba(0,0,0,0.35); }
+  .ink-stroke { position: relative; }
+  .ink-stroke::after { content: ""; position: absolute; inset: 0; border: 2px dashed rgba(0,0,0,0.5); pointer-events: none; mix-blend-mode: multiply; }
 }
 
 @layer utilities {

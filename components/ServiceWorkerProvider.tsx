@@ -6,8 +6,11 @@ export function ServiceWorkerProvider() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (!('serviceWorker' in navigator)) return;
-    // Do not use service worker in development; unregister any existing ones
-    if (process.env.NODE_ENV !== 'production') {
+    const isLocalhost = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+    const swEnabled = process.env.NEXT_PUBLIC_ENABLE_SW === 'true';
+
+    // Always unregister on localhost to prevent stale caches
+    if (isLocalhost || process.env.NODE_ENV !== 'production' || !swEnabled) {
       navigator.serviceWorker.getRegistrations?.().then((regs) => {
         regs.forEach((r) => r.unregister());
       });

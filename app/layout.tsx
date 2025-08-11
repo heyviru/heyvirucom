@@ -1,8 +1,10 @@
 import type React from 'react';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { inter, archivoBlack, bebasNeue, anton, oswald, barlowCondensed, montserratAlt, exo2, rubikMonoOne, righteous, russoOne, staatliches, alfaSlabOne, recursive, robotoFlex } from '@/app/fonts';
+import { inter, archivoBlack, bebasNeue, anton, oswald, barlowCondensed, montserratAlt, exo2, rubikMonoOne, righteous, russoOne, staatliches, alfaSlabOne, recursive, robotoFlex, patrickHand, caveat, comicNeue } from '@/app/fonts';
 import { ServiceWorkerProvider } from '@/components/ServiceWorkerProvider';
+import { ScribbleCanvas } from '@/components/ScribbleCanvas';
+import { DoodleRails } from '@/components/DoodleRails';
 import { SEOJsonLd } from '@/components/SEOJsonLd';
 
 export const metadata: Metadata = {
@@ -50,11 +52,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${archivoBlack.variable} ${bebasNeue.variable} ${anton.variable} ${oswald.variable} ${barlowCondensed.variable} ${montserratAlt.variable} ${exo2.variable} ${rubikMonoOne.variable} ${righteous.variable} ${russoOne.variable} ${staatliches.variable} ${alfaSlabOne.variable} ${recursive.variable} ${robotoFlex.variable}`}>
+    <html lang="en" className={`${inter.variable} ${archivoBlack.variable} ${bebasNeue.variable} ${anton.variable} ${oswald.variable} ${barlowCondensed.variable} ${montserratAlt.variable} ${exo2.variable} ${rubikMonoOne.variable} ${righteous.variable} ${russoOne.variable} ${staatliches.variable} ${alfaSlabOne.variable} ${recursive.variable} ${robotoFlex.variable} ${patrickHand.variable} ${caveat.variable} ${comicNeue.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
       </head>
-      <body className="min-h-dvh antialiased">
+      <body className="min-h-dvh antialiased font-body">
+        <ScribbleCanvas />
+        <DoodleRails />
         <ServiceWorkerProvider />
         <SEOJsonLd />
         {children}

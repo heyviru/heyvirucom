@@ -1,4 +1,4 @@
-import { Inter, Archivo_Black, Bebas_Neue, Anton, Oswald, Barlow_Condensed, Montserrat_Alternates, Exo_2, Rubik_Mono_One, Righteous, Russo_One, Staatliches, Alfa_Slab_One, Recursive, Roboto_Flex } from 'next/font/google';
+import { Inter, Archivo_Black, Patrick_Hand, Caveat, Comic_Neue, Bebas_Neue, Anton, Oswald, Barlow_Condensed, Montserrat_Alternates, Exo_2, Rubik_Mono_One, Righteous, Russo_One, Staatliches, Alfa_Slab_One, Recursive, Roboto_Flex } from 'next/font/google';
 
 export const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 export const archivoBlack = Archivo_Black({ weight: '400', subsets: ['latin'], variable: '--font-archivo-black', display: 'swap' });
@@ -19,5 +19,8 @@ export const recursive = Recursive({
   display: 'swap'
 });
 export const robotoFlex = Roboto_Flex({ subsets: ['latin'], variable: '--font-roboto-flex', display: 'swap' });
+export const patrickHand = Patrick_Hand({ weight: '400', subsets: ['latin'], variable: '--font-patrick-hand', display: 'swap' });
+export const caveat = Caveat({ weight: ['500','700'], subsets: ['latin'], variable: '--font-caveat', display: 'swap' });
+export const comicNeue = Comic_Neue({ weight: ['400','700'], subsets: ['latin'], variable: '--font-comic-neue', display: 'swap' });
 
 
