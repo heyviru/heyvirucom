@@ -94,21 +94,21 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="mx-auto max-w-2xl px-4 py-16">
-      <h2 className="font-display text-2xl">Contact</h2>
-      <p className="mt-2 text-white/80 text-sm">Replies within 24–48hrs.</p>
+    <section id="contact" className="section-tight max-w-2xl">
+      <h2 className="font-display text-2xl ink-stroke">Contact</h2>
+      <p className="mt-2 text-black/80 text-sm">Replies within 24–48hrs.</p>
       <form className="mt-6 grid gap-4" onSubmit={onSubmit}>
         <div className="grid gap-1">
           <label htmlFor="name">Name</label>
-          <input id="name" name="name" required value={data.name} onChange={onChange} className="rounded bg-white/5 border border-white/10 px-3 py-2" />
+          <input id="name" name="name" required value={data.name} onChange={onChange} className="rounded border border-black/40 px-3 py-2 bg-white text-black placeholder-black/40" />
         </div>
         <div className="grid gap-1">
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" required value={data.email} onChange={onChange} className="rounded bg-white/5 border border-white/10 px-3 py-2" />
+          <input id="email" name="email" type="email" required value={data.email} onChange={onChange} className="rounded border border-black/40 px-3 py-2 bg-white text-black placeholder-black/40" />
         </div>
         <div className="grid gap-1">
           <label htmlFor="projectType">Project type</label>
-          <select id="projectType" name="projectType" value={data.projectType} onChange={onChange} className="rounded bg-white/5 border border-white/10 px-3 py-2">
+          <select id="projectType" name="projectType" value={data.projectType} onChange={onChange} className="rounded border border-black/40 px-3 py-2 bg-white text-black">
             <option value="">Select</option>
             <option>Short-form</option>
             <option>Event/Aftermovie</option>
@@ -119,26 +119,26 @@ export function Contact() {
         </div>
         <div className="grid gap-1">
           <label htmlFor="budget">Budget</label>
-          <input id="budget" name="budget" placeholder="e.g., ₹30k–₹60k" value={data.budget} onChange={onChange} className="rounded bg-white/5 border border-white/10 px-3 py-2" />
+          <input id="budget" name="budget" placeholder="e.g., ₹30k–₹60k" value={data.budget} onChange={onChange} className="rounded border border-black/40 px-3 py-2 bg-white text-black placeholder-black/40" />
         </div>
         <div className="grid gap-1">
           <label htmlFor="assetLink">Asset link</label>
-          <input id="assetLink" name="assetLink" placeholder="Drive/Dropbox link" value={data.assetLink} onChange={onChange} className="rounded bg-white/5 border border-white/10 px-3 py-2" />
+          <input id="assetLink" name="assetLink" placeholder="Drive/Dropbox link" value={data.assetLink} onChange={onChange} className="rounded border border-black/40 px-3 py-2 bg-white text-black placeholder-black/40" />
         </div>
         <div className="grid gap-1">
           <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" rows={4} value={data.message} onChange={onChange} className="rounded bg-white/5 border border-white/10 px-3 py-2" />
+          <textarea id="message" name="message" rows={4} value={data.message} onChange={onChange} className="rounded border border-black/40 px-3 py-2 bg-white text-black placeholder-black/40" />
         </div>
         <div className="flex items-center gap-3">
-          <button disabled={disabled} className="rounded-full px-5 py-2 bg-[var(--neon-cyan)] text-black font-semibold disabled:opacity-50">Send</button>
-          <span className="text-sm text-white/70">
+          <button disabled={disabled} className="rounded-full px-5 py-2 bg-[var(--accent)] text-black font-semibold disabled:opacity-50">Send</button>
+          <span className="text-sm text-black/70">
             {status === 'submitted' && 'Submitted!'}
             {status === 'queued' && 'Saved offline. Will send when back online.'}
             {status === 'error' && 'Could not queue. Please try again later.'}
           </span>
         </div>
       </form>
-      <a href="#contact" className="fixed sm:hidden bottom-4 right-4 rounded-full px-5 py-3 bg-[var(--neon-cyan)] text-black font-semibold shadow-lg">Book an edit</a>
+      <a href="#contact" className="fixed sm:hidden bottom-4 right-4 rounded-full px-5 py-3 bg-[var(--accent)] text-black font-semibold shadow-lg">Book an edit</a>
     </section>
   );
 }

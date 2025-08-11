@@ -12,9 +12,29 @@
 
 html { color-scheme: light; }
 body {
-  background: repeating-linear-gradient(0deg, #fafaf7 0px, #fafaf7 2px, #f3f3ef 2px, #f3f3ef 4px);
+  /* stacked paper textures: ruled lines + crosshatch */
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.035) 0px, rgba(0,0,0,0.035) 1px, transparent 1px, transparent 6px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 10px),
+    #f7f7f2;
   color: var(--ink);
   font-family: var(--font-inter), ui-sans-serif, system-ui;
+}
+
+/* subtle grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 2px 1px;
+  opacity: .25;
+  mix-blend-mode: multiply;
 }
 
 /* Focus styles */
@@ -50,21 +70,7 @@ body {
   .ink-stroke::after { content: ""; position: absolute; inset: 0; border: 2px dashed rgba(0,0,0,0.5); pointer-events: none; mix-blend-mode: multiply; }
 }
 
-@layer utilities {
-  .ff-display { font-family: var(--font-archivo-black), ui-sans-serif, system-ui; }
-  .ff-bebas { font-family: var(--font-bebas-neue), ui-sans-serif, system-ui; }
-  .ff-anton { font-family: var(--font-anton), ui-sans-serif, system-ui; }
-  .ff-oswald { font-family: var(--font-oswald), ui-sans-serif, system-ui; }
-  .ff-barlow { font-family: var(--font-barlow-condensed), ui-sans-serif, system-ui; }
-  .ff-montserrat-alt { font-family: var(--font-montserrat-alt), ui-sans-serif, system-ui; }
-  .ff-exo2 { font-family: var(--font-exo2), ui-sans-serif, system-ui; }
-  .ff-rubikmono { font-family: var(--font-rubik-mono-one), ui-sans-serif, system-ui; }
-  .ff-righteous { font-family: var(--font-righteous), ui-sans-serif, system-ui; }
-  .ff-russo { font-family: var(--font-russo-one), ui-sans-serif, system-ui; }
-  .ff-staatliches { font-family: var(--font-staatliches), ui-sans-serif, system-ui; }
-  .ff-alfa { font-family: var(--font-alfa-slab-one), ui-sans-serif, system-ui; }
-  .ff-recursive { font-family: var(--font-recursive), ui-sans-serif, system-ui; }
-}
+/* prune unused font utilities */
 
 /* Variable font morphing (uses Recursive) */
 @property --wght { syntax: '<number>'; inherits: true; initial-value: 700; }
@@ -105,3 +111,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .font-morph-anim { animation: none; }
 }
+
+/* hand-drawn reveal animation for doodles */
+@keyframes pencilStroke {
+  from { filter: opacity(0.0) contrast(80%); }
+  to { filter: opacity(1) contrast(100%); }
+}
+.scribble-draw { animation: pencilStroke var(--dur,1s) ease-out both; }

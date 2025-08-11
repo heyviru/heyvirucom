@@ -56,7 +56,7 @@ export function SelectedWork() {
           >
             <div className="aspect-video relative">
               <video
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover bg-black/5"
                 preload="metadata"
                 playsInline
                 muted
